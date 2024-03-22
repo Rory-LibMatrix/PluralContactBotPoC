@@ -10,7 +10,9 @@ namespace PluralContactBotPoC.Bot.Commands;
 
 public class CreateSystemCommand(IServiceProvider services, HomeserverProviderService hsProvider, HomeserverResolverService hsResolver) : ICommand {
     public string Name { get; } = "createsystem";
+    public string[]? Aliases { get; }
     public string Description { get; } = "Create a new system";
+    public bool Unlisted { get; }
 
     public async Task<bool> CanInvoke(CommandContext ctx) {
         return true;

@@ -64,7 +64,7 @@ var host = Host.CreateDefaultBuilder(args).ConfigureServices((_, services) => {
     services.AddSingleton<AppServiceConfiguration>();
 
     services.AddRoryLibMatrixServices();
-    services.AddBot(withCommands: true);
+    services.AddMatrixBot().AddCommandHandler().DiscoverAllCommands();
 
     services.AddHostedService<PluralContactBot>();
 }).UseConsoleLifetime().Build();
